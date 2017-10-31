@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>寻她</title>
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <script src="js/mdui.min.js"></script>
+</head>
+<body class="mdui-theme-accent-pink mdui-theme-primary-teal mdui-drawer-body-left mdui-appbar-with-toolbar">
+    <div class="mdui-container">
+        <header class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme ">
+                <button  onclick="inst.toggle()" class="mdui-btn mdui-btn-icon" ><i class="mdui-icon material-icons">menu</i></button>
+                <p class="mdui-typo-headline">寻她</p>
+                <p class="mdui-typo-title">用户主页</p>
+                <div class="mdui-toolbar-spacer"></div>
+                <p class="mdui-btn" onclick="drop_out()">退出</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="mdui-container mdui-appbar-with-toolbar">
+        <div class="mdui-drawer mdui-drawer-close" id="drawer">
+            <ul class="mdui-list">
+                <li class="mdui-subheader">用户</li>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">&#xe88a;</i>
+                    <div class="mdui-list-item-content">用户主页</div>
+                </li>
+
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">&#xe3b6;</i>
+                    <div class="mdui-list-item-content">相片库</div>
+                </li>
+
+                <li class="mdui-subheader">帮助</li>
+
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-pink">&#xe80b;</i>
+                    <div class="mdui-list-item-content">关于寻她</div>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    var inst = new mdui.Drawer('#drawer');
+
+    function drop_out() {
+
+    }
+</script>
+
+</html>
