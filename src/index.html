@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9,  user-scalable=no">
     <title>寻她</title>
     <link rel="stylesheet" href="css/mdui.min.css">
     <script src="js/mdui.min.js"></script>
@@ -12,152 +13,31 @@
         padding-top:10%;
     }
 </style>
-<body class="mdui-theme-accent-pink mdui-theme-primary-teal">
+<body class="mdui-theme-accent-pink mdui-theme-primary-teal" >
 
-<div class="mdui-toolbar mdui-color-theme ">
-    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>-->
-        <span class="mdui-typo-title">寻她</span>
-        <div class="mdui-toolbar-spacer"></div>
-        <p class="mdui-btn" onclick="login_index()">登录</p>
-        <p class="mdui-btn" onclick="register_index()">注册</p>
+    <div class="mdui-toolbar mdui-color-theme ">
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>-->
+            <span class="mdui-typo-title">寻她</span>
+            <div class="mdui-toolbar-spacer"></div>
+            <p class="mdui-btn" onclick="login_index()">登录</p>
+            <p class="mdui-btn" onclick="register_index()">注册</p>
 
-</div>
-<div class="mdui-container marginTop10per">
-    <div class="mdui-col-md-6 mdui-col-sm-8 mdui-col-offset-md-3 mdui-col-offset-sm-2 mdui-text-center">
-        <div class="mdui-typo ">
-            <h2 class="mdui-typo-body-3">“众里寻他千百度，蓦然回首，那人却在灯火阑珊处”</h2>
-            <h1><small>《青玉案 · 元夕》—— 辛弃疾</small></h1>
+    </div>
+    <div class="mdui-container marginTop10per">
+        <div class="mdui-col-md-6 mdui-col-sm-8 mdui-col-offset-md-3 mdui-col-offset-sm-2 mdui-text-center">
+            <div class="mdui-typo ">
+                <h2 class="mdui-typo-body-3">“众里寻他千百度，蓦然回首，那人却在灯火阑珊处”</h2>
+                <h1><small>《青玉案 · 元夕》—— 辛弃疾</small></h1>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="mdui-container mdui-text-center marginTop10per">
-    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="startFindHer()">开始寻她</button>
-</div>
+    <div class="mdui-container mdui-text-center marginTop10per">
+        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="startFindHer()">开始寻她</button>
+    </div>
 </body>
+<script src="js/script.js"></script>
 <script>
-    function login_index() {
-
-        mdui.dialog({
-            title: '<div class="mdui-typo"><h5 class="mdui-typo-body-6">请登录</h5></div>',
-
-            content: '<div class="mdui-textfield mdui-textfield-floating-label mdui-p-t-0">\n' +
-            '<label class="mdui-textfield-label">注册邮箱</label>\n' +
-            '<input class="mdui-textfield-input" type="email" id="login_account"/>\n' +
-            '</div>\n' +
-            '<div class="mdui-textfield mdui-textfield-floating-label">\n' +
-            '<label class="mdui-textfield-label">密码</label>\n' +
-            '<input class="mdui-textfield-input" type="password" id="login_password"/>\n' +
-            '</div>',
-
-            buttons: [
-                {
-                    text: '取消'
-                },
-                {
-                    text: '登录',
-                    onClick: function(inst){
-                        login_push();
-                    }
-                }
-            ]
-        });
-    }
-
-    function register_index() {
-        mdui.dialog({
-            title: '<div class="mdui-typo"><h5 class="mdui-typo-body-6">注册新账号</h5></div>',
-
-            content:'<div class="mdui-textfield mdui-textfield-floating-label mdui-p-t-0">\n' +
-            '<label class="mdui-textfield-label">注册邮箱</label>\n' +
-            '<input class="mdui-textfield-input" type="email" id="register_account">\n' +
-            '</div>\n' +
-            '<div class="mdui-textfield mdui-textfield-floating-label">\n' +
-            '<label class="mdui-textfield-label">密码</label>\n' +
-            '<input class="mdui-textfield-input" type="password" id="register_password">\n' +
-            '</div>\n' +
-            '<div class="mdui-textfield mdui-textfield-floating-label">\n' +
-            '<label class="mdui-textfield-label">确认密码</label>\n' +
-            '<input class="mdui-textfield-input" type="password" id="register_surepw">\n' +
-            '</div>\n' +
-            '<div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-m-l-0 mdui-p-l-0">\n' +
-            '<label class="mdui-textfield-label">输入验证码</label>\n' +
-            '<input class="mdui-textfield-input" type="text" id="register_code">\n' +
-            '</div>\n' +
-            '<div class="mdui-col-xs-4">\n' +
-            '<div class="mdui-center mdui-m-l-2">\n' +
-            '<img class="mdui-m-t-3" src = "pic/codetest" style="height: 35px;width: auto;" >\n' +
-            '</div>\n' +
-            '</div>'
-            ,
-
-            buttons: [
-                {
-                    text: '取消'
-                },
-                {
-                    text: '注册',
-                    onClick: function(inst){
-                        register_push();
-                    }
-                }
-            ]
-        });
-    }
-
-
-    function login_push() {
-        var login_account =document.getElementById("login_account").value;
-        var login_pw=document.getElementById("login_password").value;
-        mdui.alert(login_account+"&"+login_pw+' 登录按钮回调');
-
-
-    }
-
-    function register_push() {
-        var register_account = document.getElementById("register_account");
-        var register_passowrd = document.getElementById("register_passowrd");
-        var register_surepw = document.getElementById("register_surepw");
-        var register_code=document.getElementById("register_code");
-        mdui.alert(register_account.value+'点击确认按钮的回调');
-
-
-    }
-
-    function startFindHer() {
-        mdui.dialog({
-            title: '<div class="mdui-typo"><p class="mdui-typo-body-6 mdui-p-b-0 mdui-m-b-0">请输入分享信息</p></div>',
-
-            content: '<div class="mdui-textfield mdui-textfield-floating-label mdui-p-t-0">\n' +
-            '<label class="mdui-textfield-label">寻她分享码</label>\n' +
-            '<input class="mdui-textfield-input" type="email" id="findher_code">\n' +
-            '</div>\n' +
-            '<div class="mdui-textfield mdui-textfield-floating-label">\n' +
-            '<label class="mdui-textfield-label">访问密码</label>\n' +
-            '<input class="mdui-textfield-input" type="password" id="findher_pw">\n' +
-            '</div>',
-
-            buttons: [
-                {
-                    text: '取消'
-                },
-                {
-                    text: '访问',
-                    onClick: function(inst){
-                        startFindHer_push();
-                    }
-                }
-            ]
-        });
-    }
-
-    function startFindHer_push() {
-        var findher_code=document.getElementById("findher_code").value;
-        var findher_pw=document.getElementById("findher_pw").value;
-        mdui.alert(findher_code+"&" + findher_pw +"回调回调");
-
-    }
 
 </script>
-
 </html>

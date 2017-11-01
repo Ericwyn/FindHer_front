@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9,  user-scalable=no">
+    <title>寻她 - 相片库</title>
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <script src="js/mdui.min.js"></script>
+</head>
+
+<style>
+    .card_size{
+        width: 95%;
+        margin-top: 36px;
+    }
+
+</style>
+
+<body class="mdui-theme-accent-pink mdui-theme-primary-teal mdui-drawer-body-left mdui-appbar-with-toolbar">
+    <div class="mdui-container">
+        <header class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme ">
+                <button  onclick="inst.toggle()" class="mdui-btn mdui-btn-icon" ><i class="mdui-icon material-icons">menu</i></button>
+                <p class="mdui-typo-headline">相片库</p>
+                <div class="mdui-toolbar-spacer"></div>
+                <p class="mdui-btn" onclick="drop_out()">退出</p>
+            </div>
+        </header>
+    </div>
+
+
+    <div class="mdui-container doc-container" id="card_container">
+
+        <!--<div class="mdui-col-lg-3 mdui-col-md-4 mdui-col-sm-6">-->
+            <!--<div class="mdui-card card_size mdui-center mdui-hoverable">-->
+                <!--<div class="mdui-card-media">-->
+                    <!--<img src="pic/card.jpg"/>-->
+                    <!--<div class="mdui-card-media-covered">-->
+                        <!--<div class="mdui-card-primary">-->
+                            <!--<div class="mdui-card-primary-title">Title</div>-->
+                            <!--<div class="mdui-card-primary-subtitle">Subtitle</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="mdui-card-actions ">-->
+                    <!--<div class="mdui-m-t-1">-->
+                        <!--<button class="mdui-btn mdui-btn-dense mdui-ripple mdui-color-theme mdui-float-left">编辑</button>-->
+                        <!--<button class="mdui-btn mdui-btn-dense mdui-ripple mdui-color-theme-accent mdui-float-right">删除</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+        <div class="mdui-fab-wrapper" id="exampleFab">
+            <button class="mdui-fab mdui-ripple mdui-color-theme-accent" onclick="load_card('card_container','')" >
+                <!-- 默认显示的图标 -->
+                <i class="mdui-icon material-icons">add</i>
+
+                <!-- 在拨号菜单开始打开时，平滑切换到该图标，若不需要切换图标，则可以省略该元素 -->
+                <i class="mdui-icon mdui-fab-opened material-icons">add</i>
+            </button>
+        </div>
+
+    </div>
+
+</body>
+<script src="js/script.js"></script>
+<script>
+    //引入侧边栏，然后再引入手势操作
+    loadNavigation();
+    var inst=new mdui.Drawer('#drawer',{swipe:true});
+    //引入一张默认卡片
+    load_card('card_container','');
+
+</script>
+</html>

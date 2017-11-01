@@ -4792,7 +4792,7 @@
       overlay: false,
 
       // 是否开启手势
-      swipe: false,
+      swipe: false
     };
 
     var isDesktop = function () {

@@ -2,56 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>寻她</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no">
+    <title>寻她 - 用户页面</title>
     <link rel="stylesheet" href="css/mdui.min.css">
     <script src="js/mdui.min.js"></script>
 </head>
+
+<style>
+    .card_size{
+        width: 95%;
+        margin-top: 36px;
+    }
+
+</style>
+
 <body class="mdui-theme-accent-pink mdui-theme-primary-teal mdui-drawer-body-left mdui-appbar-with-toolbar">
     <div class="mdui-container">
         <header class="mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme ">
                 <button  onclick="inst.toggle()" class="mdui-btn mdui-btn-icon" ><i class="mdui-icon material-icons">menu</i></button>
-                <p class="mdui-typo-headline">寻她</p>
-                <p class="mdui-typo-title">用户主页</p>
+                <p class="mdui-typo-headline">用户主页</p>
                 <div class="mdui-toolbar-spacer"></div>
                 <p class="mdui-btn" onclick="drop_out()">退出</p>
             </div>
         </header>
     </div>
 
-    <div class="mdui-container mdui-appbar-with-toolbar">
-        <div class="mdui-drawer mdui-drawer-close" id="drawer">
-            <ul class="mdui-list">
-                <li class="mdui-subheader">用户</li>
-                <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">&#xe88a;</i>
-                    <div class="mdui-list-item-content">用户主页</div>
-                </li>
+    <!--主页的内容显示区域-->
+    <div class="mdui-container doc-container" id="main_container">
+        <div class="mdui-typo mdui-m-t-4">
+            <h1 class="" style="display: inline;">你好，欢迎使用 <h1 class="mdui-text-color-theme" style="display: inline;">寻她</h1></h1>
 
-                <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">&#xe3b6;</i>
-                    <div class="mdui-list-item-content">相片库</div>
-                </li>
+            <div class="mdui-divider mdui-m-t-5 mdui-m-b-5"></div>
 
-                <li class="mdui-subheader">帮助</li>
+            <blockquote>
+                <p>众里寻他千百度，蓦然回首，那人却在灯火阑珊处。</p>
+                <footer>辛弃疾 —— 《青玉案 · 元夕》</footer>
+            </blockquote>
 
-                <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-pink">&#xe80b;</i>
-                    <div class="mdui-list-item-content">关于寻她</div>
-                </li>
-                </li>
-            </ul>
+            <p class=" mdui-m-t-5 mdui-m-b-5">你可即刻使用<em class="mdui-text-color-theme"> 寻她 </em>，上传多人照片，并且设定名字，帮助更快的认识新的同事、同学或者其他的伙伴。如同游戏一般。</p>
+            <p class=" mdui-m-t-5 mdui-m-b-5">并且你可以将图片分享给你的其他朋友，让大家一起通过游戏，来更快的认识集体、融入集体。</p>
         </div>
     </div>
-
-
 </body>
+<script src="js/script.js"></script>
 <script>
-    var inst = new mdui.Drawer('#drawer');
-
-    function drop_out() {
-
-    }
+    //引入侧边栏
+    loadNavigation();
+    var inst=new mdui.Drawer('#drawer',{swipe:true});
 </script>
-
 </html>
